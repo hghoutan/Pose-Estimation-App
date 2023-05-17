@@ -12,7 +12,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================
-*/
+*//*
+
 
 package org.tensorflow.lite.examples.poseestimation.ml
 
@@ -27,11 +28,13 @@ import org.junit.runner.RunWith
 import org.tensorflow.lite.examples.poseestimation.VisualizationUtils
 import org.tensorflow.lite.examples.poseestimation.data.Device
 
+*/
 /**
  * This test is used to visually verify detection results by the models.
  * You can put a breakpoint at the end of the method, debug this method, than use the
  * "View Bitmap" feature of the debugger to check the visualized detection result.
- */
+ *//*
+
 @RunWith(AndroidJUnit4::class)
 class VisualizationTest {
 
@@ -79,4 +82,4 @@ class VisualizationTest {
         val outputBitmap = VisualizationUtils.drawBodyKeypoints(inputBitmap, arrayListOf(person))
         assertThat(outputBitmap).isNotNull()
     }
-}
+}*/

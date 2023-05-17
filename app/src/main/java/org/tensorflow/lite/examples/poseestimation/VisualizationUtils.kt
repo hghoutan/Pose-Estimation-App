@@ -221,20 +221,20 @@ object VisualizationUtils {
 
                 }
 
-                if (eye.y > rightWrist.y || (angleDegreesRightArm > 45 && angleDegreesStrictRightArm > 150f)){
-
-                    originalSizeCanvas.drawLine(rightElbow.x, rightElbow.y, rightWrist.x, rightWrist.y, Paint().apply {
-                        strokeWidth = LINE_WIDTH
-                        color = Color.RED
-                        style = Paint.Style.STROKE
-                    })
-                    originalSizeCanvas.drawLine(rightShoulder.x, rightShoulder.y, rightElbow.x, rightElbow.y, Paint().apply {
-                        strokeWidth = LINE_WIDTH
-                        color = Color.RED
-                        style = Paint.Style.STROKE
-                    })
-
-                }
+//                if (eye.y > rightWrist.y || (angleDegreesRightArm > 45 && angleDegreesStrictRightArm > 150f)){
+//
+//                    originalSizeCanvas.drawLine(rightElbow.x, rightElbow.y, rightWrist.x, rightWrist.y, Paint().apply {
+//                        strokeWidth = LINE_WIDTH
+//                        color = Color.MAGENTA
+//                        style = Paint.Style.STROKE
+//                    })
+//                    originalSizeCanvas.drawLine(rightShoulder.x, rightShoulder.y, rightElbow.x, rightElbow.y, Paint().apply {
+//                        strokeWidth = LINE_WIDTH
+//                        color = Color.MAGENTA
+//                        style = Paint.Style.STROKE
+//                    })
+//
+//                }
                 //endregion
 
 
