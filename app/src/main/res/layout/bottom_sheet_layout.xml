@@ -5,7 +5,6 @@
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
     android:background="@drawable/rounded_edge"
     android:orientation="vertical"
     android:paddingStart="8dp"
@@ -13,31 +12,34 @@
     android:paddingEnd="8dp"
     android:paddingBottom="16dp"
     app:behavior_hideable="false"
-    app:behavior_peekHeight="36dp"
+    app:behavior_peekHeight="365dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     tools:showIn="@layout/activity_main">
 
-    <ImageView
-        android:id="@+id/bottom_sheet_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:contentDescription="@null"
-        android:src="@drawable/icn_chevron_up" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/tfe_pe_tv_model" />
 
         <Spinner
             android:id="@+id/spnModel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <Button
+            android:id="@+id/screensh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/take_a_screenshot" />
     </LinearLayout>
 
     <TextView
