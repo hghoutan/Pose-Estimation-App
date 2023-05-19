@@ -137,21 +137,21 @@ class LiveActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         // keep screen on while app is running
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        tvScore = findViewById(R.id.tvScore)
+        //tvScore = findViewById(R.id.tvScore)
         tvFPS = findViewById(R.id.tvFps)
         spnModel = findViewById(R.id.spnModel)
-        spnDevice = findViewById(R.id.spnDevice)
-        spnTracker = findViewById(R.id.spnTracker)
-        vTrackerOption = findViewById(R.id.vTrackerOption)
+        //spnDevice = findViewById(R.id.spnDevice)
+        //spnTracker = findViewById(R.id.spnTracker)
+        //vTrackerOption = findViewById(R.id.vTrackerOption)
         surfaceView = findViewById(R.id.surfaceView)
         tvClassificationValue1 = findViewById(R.id.tvClassificationValue1)
         tvClassificationValue2 = findViewById(R.id.tvClassificationValue2)
         tvClassificationValue3 = findViewById(R.id.tvClassificationValue3)
-        swClassification = findViewById(R.id.swPoseClassification)
-        vClassificationOption = findViewById(R.id.vClassificationOption)
+        //swClassification = findViewById(R.id.swPoseClassification)
+        //vClassificationOption = findViewById(R.id.vClassificationOption)
         initSpinner()
         spnModel.setSelection(modelPos)
-        swClassification.setOnCheckedChangeListener(setClassificationListener)
+        //swClassification.setOnCheckedChangeListener(setClassificationListener)
         if (!isCameraPermissionGranted()) {
             requestPermission()
         }
@@ -196,7 +196,7 @@ class LiveActivity : AppCompatActivity() {
                             personScore: Float?,
                             poseLabels: List<Pair<String, Float>>?
                         ) {
-                            tvScore.text = getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
+                            //tvScore.text = getString(R.string.tfe_pe_tv_score, personScore ?: 0f)
                             poseLabels?.sortedByDescending { it.second }?.let {
                                 tvClassificationValue1.text = getString(
                                     R.string.tfe_pe_tv_classification_value,
@@ -247,26 +247,26 @@ class LiveActivity : AppCompatActivity() {
             spnModel.adapter = adapter
             spnModel.onItemSelectedListener = changeModelListener
         }
-
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.tfe_pe_device_name, android.R.layout.simple_spinner_item
-        ).also { adaper ->
-            adaper.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-            spnDevice.adapter = adaper
-            spnDevice.onItemSelectedListener = changeDeviceListener
-        }
-
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.tfe_pe_tracker_array, android.R.layout.simple_spinner_item
-        ).also { adaper ->
-            adaper.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-            spnTracker.adapter = adaper
-            spnTracker.onItemSelectedListener = changeTrackerListener
-        }
+//
+//        ArrayAdapter.createFromResource(
+//            this,
+//            R.array.tfe_pe_device_name, android.R.layout.simple_spinner_item
+//        ).also { adaper ->
+//            adaper.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//
+//            spnDevice.adapter = adaper
+//            spnDevice.onItemSelectedListener = changeDeviceListener
+//        }
+//
+//        ArrayAdapter.createFromResource(
+//            this,
+//            R.array.tfe_pe_tracker_array, android.R.layout.simple_spinner_item
+//        ).also { adaper ->
+//            adaper.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//
+//            spnTracker.adapter = adaper
+//            spnTracker.onItemSelectedListener = changeTrackerListener
+//        }
     }
 
     // Change model when app is running
@@ -305,41 +305,41 @@ class LiveActivity : AppCompatActivity() {
         val poseDetector = when (modelPos) {
             0 -> {
                 // MoveNet Lightning (SinglePose)
-                showPoseClassifier(true)
-                showDetectionScore(true)
-                showTracker(true)
+               // showPoseClassifier(true)
+                //showDetectionScore(true)
+                //showTracker(true)
                 //TODO : showTracker(false)
                 MoveNet.create(this, device, ModelType.Lightning)
             }
+//            1 -> {
+//                // MoveNet Thunder (SinglePose)
+//                showPoseClassifier(true)
+//                showDetectionScore(true)
+//                showTracker(false)
+//                MoveNet.create(this, device, ModelType.Thunder)
+//            }
             1 -> {
-                // MoveNet Thunder (SinglePose)
-                showPoseClassifier(true)
-                showDetectionScore(true)
-                showTracker(false)
-                MoveNet.create(this, device, ModelType.Thunder)
-            }
-            2 -> {
                 // MoveNet (Lightning) MultiPose
-                showPoseClassifier(false)
-                showDetectionScore(false)
+                //showPoseClassifier(false)
+                //showDetectionScore(false)
                 // Movenet MultiPose Dynamic does not support GPUDelegate
-                if (device == Device.GPU) {
-                    showToast(getString(R.string.tfe_pe_gpu_error))
-                }
-                showTracker(true)
+//                if (device == Device.GPU) {
+//                    showToast(getString(R.string.tfe_pe_gpu_error))
+//                }
+//                showTracker(true)
                 MoveNetMultiPose.create(
                     this,
                     device,
                     Type.Dynamic
                 )
             }
-            3 -> {
+          /*  3 -> {
                 // PoseNet (SinglePose)
                 showPoseClassifier(true)
                 showDetectionScore(true)
                 showTracker(false)
                 PoseNet.create(this, device)
-            }
+            }*/
             else -> {
                 null
             }
@@ -350,17 +350,17 @@ class LiveActivity : AppCompatActivity() {
     }
 
     // Show/hide the pose classification option.
-    private fun showPoseClassifier(isVisible: Boolean) {
-        vClassificationOption.visibility = if (isVisible) View.VISIBLE else View.GONE
-        if (!isVisible) {
-            swClassification.isChecked = false
-        }
-    }
+//    private fun showPoseClassifier(isVisible: Boolean) {
+//      vClassificationOption.visibility = if (isVisible) View.VISIBLE else View.GONE
+//       if (!isVisible) {
+//            swClassification.isChecked = false
+//        }
+//    }
 
     // Show/hide the detection score.
-    private fun showDetectionScore(isVisible: Boolean) {
+   /* private fun showDetectionScore(isVisible: Boolean) {
         tvScore.visibility = if (isVisible) View.VISIBLE else View.GONE
-    }
+    }*/
 
     // Show/hide classification result.
     private fun showClassificationResult(isVisible: Boolean) {
@@ -371,7 +371,7 @@ class LiveActivity : AppCompatActivity() {
     }
 
     // Show/hide the tracking options.
-    private fun showTracker(isVisible: Boolean) {
+   /* private fun showTracker(isVisible: Boolean) {
         if (isVisible) {
             // Show tracker options and enable Bounding Box tracker.
             vTrackerOption.visibility = View.VISIBLE
@@ -381,7 +381,7 @@ class LiveActivity : AppCompatActivity() {
             vTrackerOption.visibility = View.GONE
             spnTracker.setSelection(0)
         }
-    }
+    }*/
 
     private fun requestPermission() {
         when (PackageManager.PERMISSION_GRANTED) {
